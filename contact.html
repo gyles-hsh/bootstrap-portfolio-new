@@ -1,0 +1,50 @@
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-5 flex-column-reverse flex-lg-row">
+            <!-- Form Column -->
+            <div class="col-lg-6">
+                <form id="contactForm" class="contact-form">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Your name*" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email*" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject*" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="How can I help?*" required></textarea>
+                    </div>
+                </form>
+                <button type="submit" form="contactForm" class="btn btn-dark fw-bold d-lg-none w-100 mb-4">Send Message</button>
+            </div>
+            
+            <!-- Content Column -->
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h2 class="mb-3 fw-bold">
+                    Get <span class="in-touch-outline">In Touch</span>
+                </h2>
+                <p class="lead text-muted mb-4">
+                    Looking to collaborate and create something together?<br>Let's connect!
+                </p>
+                
+                <div class="contact-actions d-flex gap-2 align-items-center flex-wrap">
+                    <button type="submit" form="contactForm" class="btn btn-dark fw-bold d-none d-lg-inline-block">Send Message</button>
+                    <a href="mailto:andrei@example.com" class="btn btn-outline-dark btn-lg" title="Email">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline-dark btn-lg" title="GitHub">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="btn btn-outline-dark btn-lg" title="LinkedIn">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

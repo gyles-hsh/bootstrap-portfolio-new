@@ -66,10 +66,16 @@ document.addEventListener('DOMContentLoaded', async function() {
             const element = document.getElementById(section);
             if (element) {
                 const rect = element.getBoundingClientRect();
-                if (rect.top <= 100) {
+                // Check if section is in the upper part of the viewport
+                if (rect.top <= document.documentElement.clientHeight / 2) {
                     currentSection = section;
                 }
             }
+        }
+        
+        // If scrolled to the very bottom, activate the last section (Contact)
+        if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+            currentSection = sections[sections.length - 1];
         }
         
         // Update active link

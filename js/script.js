@@ -83,6 +83,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Update active nav link on scroll
 window.addEventListener('scroll', () => {
+    // Dynamic Navbar Shrink Effect
+    const navbar = document.querySelector('.navbar-custom');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
+    }
+
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const sections = document.querySelectorAll('section[id]');
     const navHeight = document.querySelector('.navbar').offsetHeight;

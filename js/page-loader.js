@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const dynamicContent = document.getElementById('dynamicContent');
     
     // Array of sections in order
-    const sections = ['experience', 'projects', 'education', 'about', 'contact'];
+    const sections = ['experience', 'projects', 'skills', 'education', 'about', 'contact'];
     
     // Load all sections at once
     async function loadAllSections() {
@@ -24,6 +24,42 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         dynamicContent.innerHTML = allContent;
+        
+        // Initialize scroll animations
+        initScrollAnimations();
+    }
+    
+    // Function to handle Intersection Observer for scroll animations
+    function initScrollAnimations() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Elements to animate
+        const animateElements = document.querySelectorAll(
+            '#dynamicContent section h2, ' +
+            '#dynamicContent .col-lg-6, ' +
+            '#dynamicContent .col-lg-8, ' +
+            '#dynamicContent .col-lg-4, ' +
+            '#dynamicContent .skill-category, ' +
+            '.hero-section .col-lg-6'
+        );
+        
+        animateElements.forEach((el, index) => {
+            el.classList.add('scroll-hidden');
+            observer.observe(el);
+        });
     }
     
     // Load all sections on page init
